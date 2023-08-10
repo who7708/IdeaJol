@@ -7,7 +7,11 @@ group = "com.github.stokito.IdeaJol"
 version = "1.11.1"
 
 repositories {
-    mavenCentral()
+    maven("https://maven.aliyun.com/repository/public")
+    maven("https://maven.aliyun.com/repository/google")
+    maven("https://maven.aliyun.com/repository/gradle-plugin")
+    mavenLocal()
+    // mavenCentral()
 }
 
 dependencies {
@@ -31,9 +35,9 @@ tasks {
         sinceBuild.set("223")
         untilBuild.set("231.*")
     }
-//    runPluginVerifier {
-//        ideVersions.set(properties("pluginVerifierIdeVersions").split(',').map(String::trim).filter(String::isNotEmpty))
-//    }
+    //    runPluginVerifier {
+    //        ideVersions.set(properties("pluginVerifierIdeVersions").split(',').map(String::trim).filter(String::isNotEmpty))
+    //    }
     signPlugin {
         certificateChain.set(System.getenv("CERTIFICATE_CHAIN"))
         privateKey.set(System.getenv("PRIVATE_KEY"))
